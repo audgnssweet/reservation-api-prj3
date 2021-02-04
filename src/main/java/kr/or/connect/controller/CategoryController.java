@@ -1,6 +1,5 @@
 package kr.or.connect.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 import kr.or.connect.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
