@@ -19,13 +19,14 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 /*
 이것은 Controller의 통합 테스트를 위함.
  */
 @SpringJUnitConfig
-@WebAppConfiguration
+@WebAppConfiguration    //WebApplicationContext를 자동으로 설정해줌.
 @ContextConfiguration(classes = {ApplicationConfig.class, WebMvcConfig.class})
 @TestInstance(Lifecycle.PER_CLASS)
 public class CategoryControllerWebTest {
@@ -37,13 +38,15 @@ public class CategoryControllerWebTest {
 
     @BeforeAll
     public void setMockmvc() {
-        mockmvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        mockmvc = MockMvcBuilders.webAppContextSetup(wac)
+            .addFilters(new CharacterEncodingFilter("UTF-8",true))
+            .build();
     }
 
     @Test
     void test() throws Exception {
         RequestBuilder builder = MockMvcRequestBuilders.get("/api/categories")
-            .contentType(MediaType.APPLICATION_JSON);
+            .contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8");
 
         mockmvc.perform(builder).andExpect(status().isOk()).andDo(print());
     }

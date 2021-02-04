@@ -2,7 +2,7 @@ package kr.or.connect.dao;
 
 import java.util.List;
 import kr.or.connect.config.ApplicationConfig;
-import kr.or.connect.dto.Category;
+import kr.or.connect.domain.Category;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;

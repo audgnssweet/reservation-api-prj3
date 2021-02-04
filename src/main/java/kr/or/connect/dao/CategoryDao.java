@@ -5,7 +5,7 @@ import static kr.or.connect.dao.sqls.CategoryDaoSqls.*;
 import java.util.Collections;
 import java.util.List;
 import javax.sql.DataSource;
-import kr.or.connect.dto.Category;
+import kr.or.connect.domain.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
