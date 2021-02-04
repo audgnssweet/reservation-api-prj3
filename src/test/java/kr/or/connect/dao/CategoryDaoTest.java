@@ -23,4 +23,10 @@ public class CategoryDaoTest {
         categories.forEach(System.out::println);
     }
 
+    @Test
+    void getCount() {
+        final List<Integer> displayCount = categoryDao.getDisplayCount();
+        displayCount.forEach(System.out::println);
+    }
+
 }

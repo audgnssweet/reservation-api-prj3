@@ -1,6 +1,8 @@
 package kr.or.connect.controller;
 
 import java.util.Map;
+import kr.or.connect.dto.CategoryDto;
+import kr.or.connect.dto.CategoryDto.Response;
 import kr.or.connect.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,7 @@ public class CategoryController {
     }
 
     @GetMapping("/categories")
-    public Map<String, Object> getCategories() {
+    public Response getCategories() {
         return categoryService.selectAllCategoriesAndCount();
     }
 

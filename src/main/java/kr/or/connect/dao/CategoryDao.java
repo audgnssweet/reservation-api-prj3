@@ -1,6 +1,7 @@
 package kr.or.connect.dao;
 
-import static kr.or.connect.dao.sqls.CategoryDaoSqls.*;
+import static kr.or.connect.dao.sqls.CategoryDaoSqls.SELECT_ALL;
+import static kr.or.connect.dao.sqls.CategoryDaoSqls.SELECT_CATEGORY_DISPLAY_COUNT;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +27,10 @@ public class CategoryDao {
 
     public List<Category> selectAll() {
         return template.query(SELECT_ALL, Collections.emptyMap(), mapper);
+    }
+
+    public List<Integer> getDisplayCount() {
+        return template.queryForList(SELECT_CATEGORY_DISPLAY_COUNT, Collections.emptyMap(), Integer.class);
     }
 
 }
